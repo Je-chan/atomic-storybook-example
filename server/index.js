@@ -4,6 +4,7 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const app = express();
+const db = require('./models');
 const { Grew } = require('./models');
 const { Op } = require('sequelize');
 const port = process.env.HTTP_PORT || 80;
@@ -12,7 +13,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(
   cors({
-    origin: ['http://localhost:8080', 'http://127.0.0.1:8080'],
+    origin: '*',
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   })
@@ -94,6 +95,8 @@ app.get('/grew-person', async (req, res) => {
 });
 
 app.get('/grew/');
+
+db.sequelize.sync();
 
 app.listen(port, () => {
   console.log(`          server listening on ${port}`);

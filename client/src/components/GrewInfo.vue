@@ -7,6 +7,9 @@
       v-if="imageLoading"
       :size="1.5"
       absolute />
+    <div class="like">
+      <img class="like_icon" src="https://doldolma.com/images/thumb.png" />
+    </div>
     <div class="info">
       <div class="nicknameEng">
         {{ grew.nicknameEng }}
@@ -56,6 +59,12 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+.like {
+  text-align: end;
+}
+.like_icon {
+  width: 3rem;
+}
 .grew {
   $width: 200px;
   width: $width;
