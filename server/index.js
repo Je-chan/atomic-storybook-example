@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('dotenv').config({filename: ".env"});
 
 // 필요한 모듈 다운
 const express = require('express');
@@ -15,12 +15,11 @@ app.use(
   cors({
     origin: '*',
     credentials: true,
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   })
 );
 
-app.get('/', () => {
-  console.log('hey');
+app.get('/', (_, res) => {
+  return res.send("hey");
 });
 
 app.get('/searching', async (req, res) => {
@@ -94,10 +93,12 @@ app.get('/grew-person', async (req, res) => {
   }
 });
 
-app.get('/grew/');
+app.get("/health", (_, res) => res.json({ status: "UP" }));
+
+app.get('/grews', async (_, res) => res.json(await Grew.findAll()));
 
 db.sequelize.sync();
 
 app.listen(port, () => {
-  console.log(`          server listening on ${port}`);
+  console.log(`\t server listening on ${port}`);
 });
