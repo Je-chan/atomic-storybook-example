@@ -44,11 +44,11 @@
         </div>
         <div>
           <h3>익명 편지쓰기</h3>
-          <input id="letter" type="text" /><button v-on:click.stop="sendLetter">작성</button>
+          <input id="letter" type="text" /><button v-on:click.stop="sendLetter(searchedGrew.id)">작성</button>
         </div>
         <div>
           <h3>편지</h3>
-          <ul>
+          <ul id="letters">
             <li v-for="(letter, i) in searchedGrew.letters" :key="i">
               {{letter}}
             </li>
@@ -80,14 +80,23 @@ export default {
     });
   },
   methods: {
-    sendLetter: async (e) => {
+    sendLetter: async (userId) => {
       const letter = document.getElementById("letter");
-      console.log(letter);
-      
+      if(!letter.value) return;
       // network 요청
-      // await axios.get();
-
-      alert("편지 : " + letter.value);
+      try {
+        await axios.post(`http://localhost:7894/letters`, {
+          userId, content: letter.value,
+        });
+      } catch {
+        alert("통신이 원활하지 않습니다.");
+        return;
+      }
+      // location.reload();
+      const ul = document.getElementById("letters");
+      const li = document.createElement("li");
+      li.textContent = letter.value;
+      ul.appendChild(li);
       letter.value = "";
     }
   }
