@@ -89,7 +89,7 @@ app.get('/grew-person', async (req, res) => {
 
     if (grewInfo) {
       try {
-        grewInfo.letters = (await axios.get(`http://192.168.0.23:7894/letters/${id}`)).data;
+        grewInfo.letters = (await axios.get(`http://127.0.0.1:7894/letters/${id}`)).data;
       } catch(e) {
         grewInfo.letters = [];
       }
