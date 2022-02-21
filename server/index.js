@@ -7,6 +7,7 @@ const app = express();
 const db = require('./models');
 const { Grew } = require('./models');
 const { Op } = require('sequelize');
+const axios = require('axios');
 const port = process.env.HTTP_PORT || 80;
 
 app.use(express.json());
@@ -86,7 +87,14 @@ app.get('/grew-person', async (req, res) => {
       },
     });
 
-    if (grewInfo) res.json(grewInfo);
+    if (grewInfo) {
+      try {
+        grewInfo.letters = (await axios.get(`http://192.168.0.23:7894/letters/${id}`)).data;
+      } catch(e) {
+        grewInfo.letters = [];
+      }
+      return res.json(grewInfo);
+    }
     else res.status(400).send('조건을 만족하는 분이 안 계십니다');
   } catch (err) {
     res.status(500).send('네트워크가 불안정합니다');

@@ -10,8 +10,8 @@ export const _fetchGrewInfo = (payload) => {
   const { grewName, team, id } = payload;
   const name = grewName && _nameLower(grewName);
   const url = id
-    ? `http://localhost:4000/grew-person/?id=${id}`
-    : `http://localhost:4000/searching/?name=${name}&team=${team}`;
+    ? `${VUE_APP_API_URI}/grew-person/?id=${id}`
+    : `${VUE_APP_API_URI}/searching/?name=${name}&team=${team}`;
 
   return new Promise((resolve, reject) => {
     axios

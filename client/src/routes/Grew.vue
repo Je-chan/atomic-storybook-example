@@ -42,12 +42,25 @@
           <h3>슬로건</h3>
           {{ searchedGrew.slogan }}
         </div>
+        <div>
+          <h3>익명 편지쓰기</h3>
+          <input id="letter" type="text" /><button v-on:click.stop="sendLetter">작성</button>
+        </div>
+        <div>
+          <h3>편지</h3>
+          <ul>
+            <li v-for="(letter, i) in searchedGrew.letters" :key="i">
+              {{letter}}
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
 </template>
 <script>
 import Loader from '~/components/Loader';
+import axios from 'axios';
 import { mapState } from 'vuex';
 export default {
   components: {
@@ -66,7 +79,18 @@ export default {
       id: this.$route.params.id,
     });
   },
+  methods: {
+    sendLetter: async (e) => {
+      const letter = document.getElementById("letter");
+      console.log(letter);
+      
+      // network 요청
+      // await axios.get();
 
+      alert("편지 : " + letter.value);
+      letter.value = "";
+    }
+  }
 };
 </script>
 <style lang="scss" scoped>

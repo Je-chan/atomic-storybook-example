@@ -7,9 +7,9 @@
       v-if="imageLoading"
       :size="1.5"
       absolute />
-    <div class="like">
+    <!-- <div class="like">
       <img class="like_icon" src="https://doldolma.com/images/thumb.png" />
-    </div>
+    </div> -->
     <div class="info">
       <div class="nicknameEng">
         {{ grew.nicknameEng }}
