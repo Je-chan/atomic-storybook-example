@@ -85,7 +85,7 @@ export default {
       if(!letter.value) return;
       // network 요청
       try {
-        await axios.post(`http://localhost:7894/letters`, {
+        await axios.post(`/letter-service/letters`, {
           userId, content: letter.value,
         });
       } catch {

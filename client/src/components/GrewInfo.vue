@@ -12,7 +12,7 @@
     </div> -->
     <div class="info">
       <div class="nicknameEng">
-        {{ grew.nicknameEng }}
+        {{ grew.nicknameEng }} ({{grew.lettersCount}})
       </div>
       <div class="title">
         {{ grew.slogan }}
