@@ -1,9 +1,7 @@
 <template>
   <footer>
     <Logo />
-    <a
-      href="https://github.com/Je-chan"
-      targe="_blank">
+    <a href="https://github.com/Je-chan" targe="_blank">
       (c){{ new Date().getFullYear() }}Je-chan
     </a>
   </footer>

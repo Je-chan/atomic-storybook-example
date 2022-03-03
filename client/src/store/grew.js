@@ -10,8 +10,8 @@ export const _fetchGrewInfo = (payload) => {
   const { grewName, team, id } = payload;
   const name = grewName && _nameLower(grewName);
   const url = id
-    ? `/user-service/grew-person/?id=${id}`
-    : `/user-service/searching/?name=${name}&team=${team}`;
+    ? `${process.env.VUE_APP_API}/user-service/grew-person/?id=${id}`
+    : `${process.env.VUE_APP_API}/user-service/searching/?name=${name}&team=${team}`;
 
   // return axios.get(url);
 

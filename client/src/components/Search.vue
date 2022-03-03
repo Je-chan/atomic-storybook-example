@@ -5,27 +5,17 @@
       v-model="grewName"
       class="form-control"
       placeholder="Write down a grew name!"
-      @keyup.enter="apply" />
+      @keyup.enter="apply"
+    />
     <div class="selects">
-      <select
-        v-model="$data[filter.name]"
-        class="form-select">
-        <option
-          value="">
-          All Teams
-        </option>
-        <option
-          v-for="item in filter.items"
-          :key="item">
+      <select v-model="$data[filter.name]" class="form-select">
+        <option value="">All Teams</option>
+        <option v-for="item in filter.items" :key="item">
           {{ item }}
         </option>
       </select>
     </div>
-    <button
-      class="btn btn-primary"
-      @click="apply">
-      Apply
-    </button>
+    <button class="btn btn-primary" @click="apply">Apply</button>
   </div>
 </template>
 
@@ -37,18 +27,15 @@ export default {
       team: '',
       number: 10,
       year: '',
-      filter: 
-        {
-          name: 'team',
-          items: ['개발 1팀', '개발 2팀', '개발 3팀', '개발 4팀'],
-        },
-      
+      filter: {
+        name: 'team',
+        items: ['개발 1팀', '개발 2팀', '개발 3팀', '개발 4팀'],
+      },
     };
   },
 
   methods: {
     async apply() {
-      
       this.$store.dispatch('grew/searchGrew', {
         grewName: this.grewName || 'all',
         team: this.team || 'all',

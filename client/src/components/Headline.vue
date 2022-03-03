@@ -2,7 +2,7 @@
   <div class="container">
     <h1>
       <span> Gridwiz </span> <br />
-      Platform Research Institute 
+      Platform Research Institute
     </h1>
     <p>
       We are grew

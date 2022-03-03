@@ -1,12 +1,8 @@
 <template>
   <div class="about">
     <div class="photo">
-      <Loader
-        v-if="imageLoading"
-        absolute />
-      <img
-        :src="image"
-        :alt="name" />
+      <SpinnerLoading v-if="imageLoading" absolute />
+      <img :src="image" :alt="name" />
     </div>
     <div class="name">
       {{ name }}
@@ -18,7 +14,7 @@
 </template>
 
 <script>
-import Loader from '~/components/Loader';
+import SpinnerLoading from '~/components/atoms/Loading/SpinnerLoading';
 import { mapState } from 'vuex';
 export default {
   data() {
@@ -27,7 +23,7 @@ export default {
     };
   },
   components: {
-    Loader,
+    SpinnerLoading,
   },
   computed: {
     ...mapState('about', ['image', 'name', 'email', 'blog', 'phone']),

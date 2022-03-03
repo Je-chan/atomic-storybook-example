@@ -12,22 +12,16 @@
           <div class="skeleton etc"></div>
         </div>
       </div>
-      <Loader
-        :size="3"
-        :z-index="9"
-        fixed />
+      <SpinnerLoading :size="3" :z-index="9" fixed />
     </template>
-    <div
-      v-else
-      class="movie-details">
+    <div v-else class="movie-details">
       <div
         :style="{
           backgroundImage: `url(${searchedGrew.image})`,
         }"
-        class="poster">
-        <Loader
-          v-if="loading"
-          absolute />
+        class="poster"
+      >
+        <SpinnerLoading v-if="loading" absolute />
       </div>
       <div class="specs">
         <div>
@@ -44,13 +38,17 @@
         </div>
         <div>
           <h3>익명 편지쓰기</h3>
-          <input id="letter" type="text" /><button v-on:click.stop="sendLetter(searchedGrew.id)">작성</button>
+          <input id="letter" type="text" /><button
+            v-on:click.stop="sendLetter(searchedGrew.id)"
+          >
+            작성
+          </button>
         </div>
         <div>
           <h3>편지</h3>
           <ul id="letters">
             <li v-for="(letter, i) in searchedGrew.letters" :key="i">
-              {{letter}}
+              {{ letter }}
             </li>
           </ul>
         </div>
@@ -59,12 +57,12 @@
   </div>
 </template>
 <script>
-import Loader from '~/components/Loader';
+import SpinnerLoading from '~/components/atoms/Loading/SpinnerLoading';
 import axios from 'axios';
 import { mapState } from 'vuex';
 export default {
   components: {
-    Loader,
+    SpinnerLoading,
   },
   data() {
     return {
@@ -81,25 +79,26 @@ export default {
   },
   methods: {
     sendLetter: async (userId) => {
-      const letter = document.getElementById("letter");
-      if(!letter.value) return;
+      const letter = document.getElementById('letter');
+      if (!letter.value) return;
       // network 요청
       try {
-        await axios.post(`/letter-service/letters`, {
-          userId, content: letter.value,
+        await axios.post(`${process.env.VUE_APP_API}/letter-service/letters`, {
+          userId,
+          content: letter.value,
         });
       } catch {
-        alert("통신이 원활하지 않습니다.");
+        alert('통신이 원활하지 않습니다.');
         return;
       }
       // location.reload();
-      const ul = document.getElementById("letters");
-      const li = document.createElement("li");
+      const ul = document.getElementById('letters');
+      const li = document.createElement('li');
       li.textContent = letter.value;
       ul.appendChild(li);
-      letter.value = "";
-    }
-  }
+      letter.value = '';
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>
