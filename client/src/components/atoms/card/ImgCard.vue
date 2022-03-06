@@ -10,12 +10,38 @@ export default {
       type: String,
       default: '',
     },
+    w: {
+      type: String,
+      default: '200px',
+    },
+    h: {
+      type: String,
+    },
+    size: {
+      type: String,
+    },
+    bg: {
+      type: String,
+    },
+    borderOut: {
+      type: Boolean,
+      default: false,
+    },
+  },
+
+  computed: {
+    hoverBorder(props) {
+      return props.borderOut ? null : '6px solid #b2d57c';
+    },
+    w(props) {
+      return props.w;
+    },
   },
 };
 </script>
 <style scoped lang="scss">
 .img-warpper {
-  $width: 200px;
+  $width: v-bind(w);
   width: $width;
   height: calc($width * 3 / 2);
   margin: 10px;
@@ -31,7 +57,7 @@ export default {
     bottom: 0;
     left: 0;
     right: 0;
-    border: 6px solid #b2d57c;
+    border: v-bind(hoverBorder);
   }
 }
 </style>

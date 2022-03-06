@@ -18,8 +18,9 @@
     </div>
   </header>
 </template>
+
 <script>
-import Logo from '~/components/Logo';
+import Logo from '~/components/atoms/logo/Logo';
 import { mapState } from 'vuex';
 export default {
   components: {
@@ -59,9 +60,8 @@ export default {
   },
 };
 </script>
-<style lang="scss" scoped>
-/* @import '~/scss/main'; */
 
+<style lang="scss" scoped>
 header {
   position: relative;
   height: 70px;

@@ -1,51 +1,28 @@
 <template>
   <div class="container">
-    <template v-if="loading">
-      <div class="skeletons">
-        <div class="skeleton poster"></div>
-        <div class="specs">
-          <div class="skeleton title"></div>
-          <div class="skeleton spec"></div>
-          <div class="skeleton plot"></div>
-          <div class="skeleton etc"></div>
-          <div class="skeleton etc"></div>
-          <div class="skeleton etc"></div>
-        </div>
-      </div>
-      <SpinnerLoading :size="3" :z-index="9" fixed />
-    </template>
-    <div v-else class="movie-details">
-      <div
-        :style="{
-          backgroundImage: `url(${searchedGrew.image})`,
-        }"
-        class="poster"
-      >
+    <LoadingInfo v-if="loading" />
+    <div v-else class="grew-details">
+      <ImgCard :imgSrc="searchedGrew.image" borderOut w="500px" class="poster">
         <SpinnerLoading v-if="loading" absolute />
-      </div>
+      </ImgCard>
       <div class="specs">
+        <GrewDescription title="본명" :content="searchedGrew.name" mb="10px" />
+        <GrewDescription
+          title="닉네임"
+          :content="`${searchedGrew.nicknameEng} (${searchedGrew.nickname})`"
+          mb="10px"
+        />
+        <GrewDescription
+          title="슬로건"
+          :content="searchedGrew.slogan"
+          mb="10px"
+        />
         <div>
-          <h3>본명</h3>
-          {{ searchedGrew.name }}
+          <H3 mb="10px">익명 편지쓰기</H3>
+          <InputForm :grew-id="searchedGrew.id" @onClickHandler="sendLetter" />
         </div>
         <div>
-          <h3>닉네임</h3>
-          {{ searchedGrew.nicknameEng }}({{ searchedGrew.nickname }})
-        </div>
-        <div>
-          <h3>슬로건</h3>
-          {{ searchedGrew.slogan }}
-        </div>
-        <div>
-          <h3>익명 편지쓰기</h3>
-          <input id="letter" type="text" /><button
-            v-on:click.stop="sendLetter(searchedGrew.id)"
-          >
-            작성
-          </button>
-        </div>
-        <div>
-          <h3>편지</h3>
+          <H3 mt="10px">편지</H3>
           <ul id="letters">
             <li v-for="(letter, i) in searchedGrew.letters" :key="i">
               {{ letter }}
@@ -56,13 +33,26 @@
     </div>
   </div>
 </template>
+
 <script>
-import SpinnerLoading from '~/components/atoms/Loading/SpinnerLoading';
+import ImgCard from '~/components/atoms/card/ImgCard';
+import H3 from '~/components/atoms/h/H3';
+
+import GrewDescription from '~/components/molecules/GrewDescription';
+import InputForm from '~/components/molecules/common/InputForm';
+
+import LoadingInfo from '~/components/templates/grew/LoadingInfo';
+
 import axios from 'axios';
 import { mapState } from 'vuex';
+
 export default {
   components: {
-    SpinnerLoading,
+    GrewDescription,
+    H3,
+    ImgCard,
+    InputForm,
+    LoadingInfo,
   },
   data() {
     return {
@@ -72,7 +62,7 @@ export default {
   computed: {
     ...mapState('grew', ['searchedGrew', 'loading']),
   },
-  created() {
+  created(props) {
     this.$store.dispatch('grew/searchGrewId', {
       id: this.$route.params.id,
     });
@@ -99,77 +89,25 @@ export default {
       letter.value = '';
     },
   },
+
+  mounted(props) {
+    console.log('====', this.$store.state);
+  },
 };
 </script>
 <style lang="scss" scoped>
 .container {
   padding-top: 40px;
 }
-.skeletons {
-  display: flex;
-  .poster {
-    flex-shrink: 0;
-    width: 500px;
-    height: 500px * 3 / 2;
-    margin-right: 70px;
-  }
-  .specs {
-    flex-grow: 1;
-  }
-  .skeleton {
-    border-radius: 10px;
-    background-color: $gray-200;
-    &.title {
-      width: 80%;
-      height: 70px;
-    }
-    &.spec {
-      width: 60%;
-      height: 30px;
-      margin-top: 20px;
-    }
-    &.plot {
-      width: 100%;
-      height: 250px;
-      margin-top: 20px;
-    }
-    &.etc {
-      width: 50%;
-      height: 50px;
-      margin-top: 20px;
-    }
-  }
-}
-.movie-details {
+.grew-details {
   display: flex;
   color: $gray-600;
   .poster {
-    width: 500px;
-    height: 500px * 3 / 2;
-    margin-right: 70px;
-    border-radius: 10px;
-    background-color: $gray-200;
-    background-size: cover;
-    background-position: center;
     flex-shrink: 0;
-    position: relative;
+    margin-right: 70px;
   }
   .specs {
     flex-grow: 1;
-    .title {
-      color: $black;
-      font-family: 'Oswald', sans-serif;
-      font-size: 70px;
-      line-height: 1;
-      margin-bottom: 30px;
-    }
-    h3 {
-      margin: 24px 0 6px;
-      color: $primary;
-      font-weight: 700;
-      font-family: 'Oswald', sans-serif;
-      font-size: 20px;
-    }
   }
   @include media-breakpoint-down(xl) {
     .poster {
@@ -182,21 +120,6 @@ export default {
     display: block;
     .poster {
       margin-bottom: 40px;
-    }
-  }
-  @include media-breakpoint-down(md) {
-    .specs {
-      .title {
-        font-size: 50px;
-      }
-      .ratings {
-        .rating-wrap {
-          display: block;
-          .rating {
-            margin-top: 10px;
-          }
-        }
-      }
     }
   }
 }

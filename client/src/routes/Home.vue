@@ -7,9 +7,9 @@
 </template>
 
 <script>
-import HeadLine from '~/components/HeadLine';
-import Search from '~/components/Search';
-import GrewList from '~/components/GrewList';
+import HeadLine from '~/components/templates/home/HeadLine';
+import Search from '~/components/templates/home/Search';
+import GrewList from '~/components/templates/home/GrewList';
 export default {
   components: {
     HeadLine,

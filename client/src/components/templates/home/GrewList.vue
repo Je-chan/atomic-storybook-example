@@ -11,6 +11,7 @@
     </div>
   </div>
 </template>
+
 <script>
 import GrewInfo from '~/components/molecules/GrewInfo';
 import SpinnerLoading from '~/components/atoms/Loading/SpinnerLoading';
@@ -29,6 +30,7 @@ export default {
   },
 };
 </script>
+
 <style lang="scss" scoped>
 .container {
   margin-top: 30px;

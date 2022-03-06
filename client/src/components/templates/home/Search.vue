@@ -1,11 +1,12 @@
 <template>
   <div class="container">
-    <input
-      type="text"
-      v-model="grewName"
-      class="form-control"
+    <Input
+      w="100%"
       placeholder="Write down a grew name!"
-      @keyup.enter="apply"
+      pd="0 1rem"
+      activeC="#71a71f"
+      @inputHandler="updateValue"
+      @enterHandler="apply"
     />
     <div class="selects">
       <select v-model="$data[filter.name]" class="form-select">
@@ -20,7 +21,12 @@
 </template>
 
 <script>
+import Input from '~/components/atoms/input/Input.vue';
 export default {
+  components: {
+    Input,
+  },
+
   data() {
     return {
       grewName: '',
@@ -35,9 +41,16 @@ export default {
   },
 
   methods: {
-    async apply() {
+    updateValue(data) {
+      this.grewName = data;
+    },
+
+    async apply(grewName) {
+      if (typeof grewName !== 'string') {
+        grewName = this.grewName;
+      }
       this.$store.dispatch('grew/searchGrew', {
-        grewName: this.grewName || 'all',
+        grewName: grewName || 'all',
         team: this.team || 'all',
       });
     },

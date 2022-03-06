@@ -1,4 +1,5 @@
-`<template>
+`
+<template>
   <div>
     <Header />
     <RouterView />
@@ -7,8 +8,8 @@
 </template>
 
 <script>
-import Header from '~/components/Header';
-import Footer from '~/components/Footer';
+import Header from '~/components/templates/common/Header';
+import Footer from '~/components/templates/common/Footer';
 
 export default {
   components: {

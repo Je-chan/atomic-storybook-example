@@ -6,14 +6,16 @@
     </a>
   </footer>
 </template>
+
 <script>
-import Logo from '~/components/Logo';
+import Logo from '~/components/atoms/logo/Logo';
 export default {
   components: {
     Logo,
   },
 };
 </script>
+
 <style lang="scss" scoped>
 footer {
   padding: 70px 0;
