@@ -11,7 +11,6 @@
     </div>
   </div>
 </template>
-
 <script>
 import GrewInfo from '~/components/molecules/GrewInfo';
 import SpinnerLoading from '~/components/atoms/Loading/SpinnerLoading';

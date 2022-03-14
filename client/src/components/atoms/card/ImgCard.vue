@@ -1,6 +1,8 @@
 <template>
-  <div :style="{ backgroundImage: `url(${imgSrc})` }" class="img-warpper">
-    <slot />
+  <div
+    :style="{ backgroundImage: `url(${imgSrc})` }"
+    class="img-warpper">
+    <slot></slot>
   </div>
 </template>
 <script>
@@ -16,13 +18,18 @@ export default {
     },
     h: {
       type: String,
+      default: '',
     },
     size: {
       type: String,
+      default: '',
+
     },
     bg: {
       type: String,
-    },
+      default: '',
+
+},
     borderOut: {
       type: Boolean,
       default: false,
@@ -32,9 +39,6 @@ export default {
   computed: {
     hoverBorder(props) {
       return props.borderOut ? null : '6px solid #b2d57c';
-    },
-    w(props) {
-      return props.w;
     },
   },
 };

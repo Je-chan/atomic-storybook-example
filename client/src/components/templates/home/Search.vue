@@ -6,7 +6,7 @@
       pd="0 1rem"
       activeC="#71a71f"
       @inputHandler="updateValue"
-      @enterHandler="apply"
+      @keyup.enter="apply"
     />
     <div class="selects">
       <select v-model="$data[filter.name]" class="form-select">
@@ -16,15 +16,21 @@
         </option>
       </select>
     </div>
-    <button class="btn btn-primary" @click="apply">Apply</button>
+    <CustomizedButton palette="green" fw="700" colored size="m" @click="apply"
+      >Apply</CustomizedButton
+    >
   </div>
 </template>
 
 <script>
 import Input from '~/components/atoms/input/Input.vue';
+import Button from '~/components/atoms/button/Button.vue';
+import CustomizedButton from '~/components/atoms/button/CustomizedButton.vue';
 export default {
   components: {
     Input,
+    Button,
+    CustomizedButton,
   },
 
   data() {
@@ -77,13 +83,7 @@ export default {
       }
     }
   }
-  .btn {
-    width: 120px;
-    height: 50px;
-    font-weight: 700;
-    flex-shrink: 0;
-    color: #fff;
-  }
+
   @include media-breakpoint-down(lg) {
     display: block;
     input {
