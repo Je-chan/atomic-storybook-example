@@ -1,16 +1,26 @@
 <template>
   <button>
-    <slot v-if="slots.default" />
+    <slot v-if="slots.default"></slot>
     <span v-else>Button</span>
   </button>
 </template>
 <script setup>
 // import { ref } from "vue";
-import { useSlots } from 'vue';
+import { useSlots, defineProps } from 'vue';
+
 const props = defineProps({
-  palette: String,
-  colored: Boolean,
-  size: String,
+  palette: {
+    type: String,
+    default: 'black',
+  },
+  colored: {
+    type: Boolean,
+    default: false,
+  },
+  size: {
+    type: String,
+    default: '',
+  },
 
 });
 
@@ -35,6 +45,7 @@ const colorTheme = {
   lightRed: '#f7929f',
   green: '#71a71f',
   gray: '#8d97a1',
+  black: '#000'
 };
 
 const sizeTheme = {
@@ -60,41 +71,48 @@ const sizeTheme = {
   },
 };
 
-const { blue, lightBlue, red, lightRed, green, gray } = colorTheme;
 const { xs, s, m, l, xl } = sizeTheme;
 
-switch (props.palette) {
-  case 'blue':
-    stylePackage.c = blue;
-    stylePackage.b = blue;
-    stylePackage.bch = blue;
-    break;
-  case 'lightBlue':
-    stylePackage.c = lightBlue;
-    stylePackage.b = lightBlue;
-    stylePackage.bch = lightBlue;
-    break;
-  case 'red':
-    stylePackage.c = red;
-    stylePackage.b = red;
-    stylePackage.bch = red;
-    break;
-  case 'lightRed':
-    stylePackage.c = lightRed;
-    stylePackage.b = lightRed;
-    stylePackage.bch = lightRed;
-    break;
-  case 'green':
-    stylePackage.c = green;
-    stylePackage.b = green;
-    stylePackage.bch = green;
-    break;
-  case 'gray':
-    stylePackage.c = gray;
-    stylePackage.b = gray;
-    stylePackage.bch = gray;
-    break;
+const styledByPalette = (palette) => {
+  stylePackage.c = colorTheme[`${palette}`];
+  stylePackage.b = colorTheme[`${palette}`];
+  stylePackage.bch = colorTheme[`${palette}`];
 }
+
+styledByPalette(props.palette)
+
+// switch (props.palette) {
+//   case 'blue':
+//     stylePackage.c = blue;
+//     stylePackage.b = blue;
+//     stylePackage.bch = blue;
+//     break;
+//   case 'lightBlue':
+//     stylePackage.c = lightBlue;
+//     stylePackage.b = lightBlue;
+//     stylePackage.bch = lightBlue;
+//     break;
+//   case 'red':
+//     stylePackage.c = red;
+//     stylePackage.b = red;
+//     stylePackage.bch = red;
+//     break;
+//   case 'lightRed':
+//     stylePackage.c = lightRed;
+//     stylePackage.b = lightRed;
+//     stylePackage.bch = lightRed;
+//     break;
+//   case 'green':
+//     stylePackage.c = green;
+//     stylePackage.b = green;
+//     stylePackage.bch = green;
+//     break;
+//   case 'gray':
+//     stylePackage.c = gray;
+//     stylePackage.b = gray;
+//     stylePackage.bch = gray;
+//     break;
+// }
 
 if (props.colored) {
   stylePackage.bc = stylePackage.bch;

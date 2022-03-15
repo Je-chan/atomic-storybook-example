@@ -1,5 +1,8 @@
 <template>
-  <input :value="value" @input="updateValue" @keyup.enter="onEnterHandler" />
+  <input
+    :value="value"
+    @input="updateValue"
+    @keyup.enter="onEnterHandler" />
 </template>
 <script>
 import { ref } from 'vue';
@@ -13,19 +16,7 @@ export default {
       type: String,
       default: '',
     },
-    pd: {
-      type: String,
-      default: '',
-    },
-    bc: {
-      type: String,
-      default: '#fff',
-    },
-    bd: {
-      type: String,
-      default: '1px solid #ced4da',
-    },
-    activeC: {
+    palette: {
       type: String,
       default: '#000',
     },
@@ -35,7 +26,7 @@ export default {
     const value = ref('');
 
     const updateValue = (e) => {
-      value.current = e.target.value;
+      value.value.current = e.target.value;
       context.emit('inputHandler', e.target.value);
     };
 
@@ -53,11 +44,11 @@ export default {
 <style scoped lang="scss">
 input {
   width: v-bind(w);
-  border: v-bind(bd);
-  padding: v-bind(pd);
+  border:1px solid #ced4da;
+  padding: 0 1rem;
   &:focus {
     outline: none;
-    box-shadow: 0 0 6px v-bind(activeC);
+    box-shadow: 0 0 6px v-bind(palette);
   }
 }
 </style>

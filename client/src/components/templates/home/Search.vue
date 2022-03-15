@@ -3,8 +3,7 @@
     <Input
       w="100%"
       placeholder="Write down a grew name!"
-      pd="0 1rem"
-      activeC="#71a71f"
+      palette="#71a71f"
       @inputHandler="updateValue"
       @keyup.enter="apply"
     />
