@@ -1,34 +1,42 @@
 <template>
   <div class="container">
     <Input
-      w="100%"
+      size="max"
       placeholder="Write down a grew name!"
-      palette="#71a71f"
+      palette="green"
       @inputHandler="updateValue"
-      @keyup.enter="apply"
-    />
+      @keyup.enter="apply" />
     <div class="selects">
-      <select v-model="$data[filter.name]" class="form-select">
-        <option value="">All Teams</option>
-        <option v-for="item in filter.items" :key="item">
+      <select
+        v-model="$data[filter.name]"
+        class="form-select">
+        <option value="">
+          All Teams
+        </option>
+        <option
+          v-for="item in filter.items"
+          :key="item">
           {{ item }}
         </option>
       </select>
     </div>
-    <CustomizedButton palette="green" fw="700" colored size="m" @click="apply"
-      >Apply</CustomizedButton
-    >
+    <CustomizedButton
+      palette="green"
+      fw="700"
+      colored
+      size="m"
+      @click="apply">
+      Apply
+    </CustomizedButton>
   </div>
 </template>
 
 <script>
 import Input from '~/components/atoms/input/Input.vue';
-import Button from '~/components/atoms/button/Button.vue';
 import CustomizedButton from '~/components/atoms/button/CustomizedButton.vue';
 export default {
   components: {
     Input,
-    Button,
     CustomizedButton,
   },
 

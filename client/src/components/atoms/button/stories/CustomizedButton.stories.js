@@ -5,7 +5,6 @@ import CustomizedButton from '../CustomizedButton.vue';
 export default {
   title: 'Example/CustomizedButton',
   component: CustomizedButton,
-  // More on argTypes: https://storybook.js.org/docs/vue/api/argtypes
   argTypes: {
     palette: {
       control: { type: 'select' },
@@ -27,15 +26,11 @@ export default {
   },
 };
 
-// More on component templates: https://storybook.js.org/docs/vue/writing-stories/introduction#using-args
 const Template = (args) => ({
-  // Components used in your story `template` are defined in the `components` object
   components: { CustomizedButton },
-  // The story's `args` need to be mapped into the template through the `setup()` method
   setup() {
     return { args };
   },
-  // And then the `args` are bound to your component with `v-bind="args"`
   template: `<CustomizedButton v-bind="args">
     <template v-slot>${
       args.default && Object.keys(args.default)[0]
@@ -46,7 +41,7 @@ const Template = (args) => ({
   </CustomizedButton>`,
 });
 
-export const Adjust = Template.bind({});
+export const Basic = Template.bind({});
 
 export const Blue = Template.bind({});
 Blue.args = {

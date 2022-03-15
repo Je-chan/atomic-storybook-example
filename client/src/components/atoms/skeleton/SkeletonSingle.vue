@@ -19,30 +19,24 @@ export default {
     },
     mt: {
       type: String,
+      default: '',
     },
     mb: {
       type: String,
+      default: '',
     },
     ml: {
       type: String,
+      default: '',
     },
     mr: {
       type: String,
+      default: '',
     },
   },
 
   setup(props, context) {
-    const { w, h, m, mt, mb, ml, mr } = props;
 
-    return {
-      w,
-      h,
-      m,
-      mt,
-      mb,
-      ml,
-      mr,
-    };
   },
 };
 </script>

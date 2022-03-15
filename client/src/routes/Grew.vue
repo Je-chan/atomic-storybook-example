@@ -1,30 +1,47 @@
 <template>
   <div class="container">
     <LoadingInfo v-if="loading" />
-    <div v-else class="grew-details">
-      <ImgCard :imgSrc="searchedGrew.image" borderOut w="500px" class="poster">
-        <SpinnerLoading v-if="loading" absolute />
+    <div
+      v-else
+      class="grew-details">
+      <ImgCard
+        :img-src="searchedGrew.image"
+        border-out
+        w="500px"
+        class="poster">
+        <SpinnerLoading
+          v-if="loading"
+          absolute />
       </ImgCard>
       <div class="specs">
-        <GrewDescription title="본명" :content="searchedGrew.name" mb="10px" />
+        <GrewDescription
+          title="본명"
+          :content="searchedGrew.name"
+          mb="10px" />
         <GrewDescription
           title="닉네임"
           :content="`${searchedGrew.nicknameEng} (${searchedGrew.nickname})`"
-          mb="10px"
-        />
+          mb="10px" />
         <GrewDescription
           title="슬로건"
           :content="searchedGrew.slogan"
-          mb="10px"
-        />
+          mb="10px" />
         <div>
-          <H3 mb="10px">익명 편지쓰기</H3>
-          <InputForm :grew-id="searchedGrew.id" @onClickHandler="sendLetter" />
+          <H3 mb="10px">
+            익명 편지쓰기
+          </H3>
+          <InputForm
+            :grew-id="searchedGrew.id"
+            @onClickHandler="sendLetter" />
         </div>
         <div>
-          <H3 mt="10px">편지</H3>
+          <H3 mt="10px">
+            편지
+          </H3>
           <ul id="letters">
-            <li v-for="(letter, i) in searchedGrew.letters" :key="i">
+            <li
+              v-for="(letter, i) in searchedGrew.letters"
+              :key="i">
               {{ letter }}
             </li>
           </ul>

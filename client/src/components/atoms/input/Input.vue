@@ -1,6 +1,7 @@
 <template>
   <input
     :value="value"
+    :style="{width: styledWidth, padding: styledPadding}"
     @input="updateValue"
     @keyup.enter="onEnterHandler" />
 </template>
@@ -8,22 +9,56 @@
 import { ref } from 'vue';
 export default {
   props: {
-    w: {
+    size: {
       type: String,
-      default: '',
+      default: 'm'
     },
-    h: {
+    padding: {
       type: String,
-      default: '',
+      default: '0 1rem',
     },
     palette: {
       type: String,
-      default: '#000',
+      default: 'black',
     },
   },
   emits: ['inputHandler', 'enterHandler'],
   setup(props, context) {
     const value = ref('');
+
+    const stylePackage = {
+      styledWidth: '',
+      styledPadding: '0.5rem 0.8rem',
+      activeColor: ''
+    }
+
+    const sizeTheme = {
+      xs: '100px',
+      s: '150px',
+      m: '200px',
+      l: '300px',
+      xl: '500px',
+      max: '100%'
+    }
+
+    const colorTheme = {
+    blue: '#3386f7',
+    lightBlue: '#7dcbf8',
+    red: '#fa4b62',
+    lightRed: '#f7929f',
+    green: '#71a71f',
+    gray: '#8d97a1',
+    black: '#000'
+  };
+
+    const styledByProps = (size, palette) => {
+      stylePackage.styledWidth = sizeTheme[`${size}`]
+      stylePackage.activeColor = colorTheme[`${palette}`]
+    }
+
+
+    styledByProps(props.size, props.palette)
+
 
     const updateValue = (e) => {
       value.value.current = e.target.value;
@@ -33,22 +68,28 @@ export default {
     const onEnterHandler = (e) => {
       context.emit('enterHandler', e.target.value);
     };
+
+
+    const {styledWidth, styledPadding, activeColor} = stylePackage
+
     return {
       value,
       updateValue,
       onEnterHandler,
+      styledWidth,
+      styledPadding, 
+      activeColor,
     };
   },
 };
 </script>
 <style scoped lang="scss">
 input {
-  width: v-bind(w);
   border:1px solid #ced4da;
-  padding: 0 1rem;
+  border-radius: 5px;
   &:focus {
     outline: none;
-    box-shadow: 0 0 6px v-bind(palette);
+    box-shadow: 0 0 6px v-bind(activeColor);
   }
 }
 </style>

@@ -1,6 +1,8 @@
 <template>
   <div id="grew-description">
-    <H3 :style="{ marginBottom: '10px' }">{{ title }}</H3>
+    <H3 :style="{ marginBottom: '10px' }">
+      {{ title }}
+    </H3>
     <p>{{ content }}</p>
   </div>
 </template>

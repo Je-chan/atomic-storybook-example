@@ -1,12 +1,16 @@
 <template>
-  <RouterLink :to="`/grew/${grew.id}`" class="grew">
-    <ImgCard :imgSrc="grew.image">
-      <SpinnerLoading v-if="imageLoading" :size="1.5" absolute />
+  <RouterLink
+    :to="`/grew/${grew.id}`"
+    class="grew">
+    <ImgCard :img-src="grew.image">
+      <SpinnerLoading
+        v-if="imageLoading"
+        :size="1.5"
+        absolute />
       <ScriptCard
-        :mainTitle="grew.nicknameEng"
-        :optionCheck="grew.lettersCount"
-        :description="grew.slogan"
-      />
+        :main-title="grew.nicknameEng"
+        :option-check="grew.lettersCount"
+        :description="grew.slogan" />
     </ImgCard>
   </RouterLink>
 </template>

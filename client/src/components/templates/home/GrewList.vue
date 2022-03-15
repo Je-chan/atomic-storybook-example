@@ -1,12 +1,23 @@
 <template>
   <div class="container">
-    <div :class="{ 'no-result': !grews.length }" class="inner">
-      <SpinnerLoading class="loading" v-if="loading" />
-      <p v-if="message" class="message">
+    <div
+      :class="{ 'no-result': !grews.length }"
+      class="inner">
+      <SpinnerLoading
+        class="loading"
+        v-if="loading" />
+      <p
+        v-if="message"
+        class="message">
         {{ message }}
       </p>
-      <div v-else class="grews">
-        <GrewInfo v-for="grew in grews" :key="grew.id" :grew="grew" />
+      <div
+        v-else
+        class="grews">
+        <GrewInfo
+          v-for="grew in grews"
+          :key="grew.id"
+          :grew="grew" />
       </div>
     </div>
   </div>

@@ -2,19 +2,25 @@
   <header>
     <Logo />
     <div class="nav nav-pills">
-      <div v-for="nav in navigations" :key="nav.name" class="nav-item">
+      <div
+        v-for="nav in navigations"
+        :key="nav.name"
+        class="nav-item">
         <RouterLink
           :to="nav.href"
           class="nav-link"
           active-class="active"
-          :class="{ active: isMatch(nav.path) }"
-        >
+          :class="{ active: isMatch(nav.path) }">
           {{ nav.name }}
         </RouterLink>
       </div>
     </div>
-    <div @click="toAbout" class="user">
-      <img :src="image" :alt="name" />
+    <div
+      @click="toAbout"
+      class="user">
+      <img
+        :src="image"
+        :alt="name" />
     </div>
   </header>
 </template>
