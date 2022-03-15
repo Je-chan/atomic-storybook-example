@@ -79,7 +79,7 @@ export default {
   computed: {
     ...mapState('grew', ['searchedGrew', 'loading']),
   },
-  created(props) {
+  created() {
     this.$store.dispatch('grew/searchGrewId', {
       id: this.$route.params.id,
     });
@@ -107,7 +107,7 @@ export default {
     },
   },
 
-  mounted(props) {
+  mounted() {
     console.log('====', this.$store.state);
   },
 };
