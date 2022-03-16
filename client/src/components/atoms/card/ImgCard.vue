@@ -6,6 +6,7 @@
   </div>
 </template>
 <script>
+
 export default {
   props: {
     imgSrc: {
@@ -35,7 +36,6 @@ export default {
       default: false,
     },
   },
-
   computed: {
     hoverBorder(props) {
       return props.borderOut ? null : '6px solid #b2d57c';

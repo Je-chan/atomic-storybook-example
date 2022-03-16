@@ -58,7 +58,7 @@ import H3 from '~/components/atoms/h/H3';
 import GrewDescription from '~/components/molecules/GrewDescription';
 import InputForm from '~/components/molecules/common/InputForm';
 
-import LoadingInfo from '~/components/templates/grew/LoadingInfo';
+import LoadingInfo from '~/components/organisms/grew/LoadingInfo';
 
 import axios from 'axios';
 import { mapState } from 'vuex';

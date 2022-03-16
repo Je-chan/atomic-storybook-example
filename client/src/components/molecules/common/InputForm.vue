@@ -1,6 +1,10 @@
 <template>
   <input type="text" />
-  <button @click.stop="emitsOnClickHandler" :name="grewId">작성</button>
+  <button
+    @click.stop="emitsOnClickHandler"
+    :name="grewId">
+    작성
+  </button>
 </template>
 <script>
 export default {

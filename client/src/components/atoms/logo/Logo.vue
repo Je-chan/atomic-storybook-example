@@ -1,5 +1,7 @@
 <template>
-  <RouterLink to="/" class="logo">
+  <RouterLink
+    to="/"
+    class="logo">
     <img src="https://www.gridwiz.com/_nuxt/img/a112497.svg" />
   </RouterLink>
 </template>

@@ -1,8 +1,12 @@
 <template>
   <div class="about">
     <div class="photo">
-      <SpinnerLoading v-if="imageLoading" absolute />
-      <img :src="image" :alt="name" />
+      <SpinnerLoading
+        v-if="imageLoading"
+        absolute />
+      <img
+        :src="image"
+        :alt="name" />
     </div>
     <div class="name">
       {{ name }}

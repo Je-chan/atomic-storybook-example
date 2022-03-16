@@ -1,6 +1,6 @@
 <template>
   <h3 class="custom">
-    <slot />
+    <slot></slot>
   </h3>
 </template>
 <script>

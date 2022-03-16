@@ -8,8 +8,8 @@
 </template>
 
 <script>
-import Header from '~/components/templates/common/Header';
-import Footer from '~/components/templates/common/Footer';
+import Header from '~/components/organisms/common/Header';
+import Footer from '~/components/organisms/common/Footer';
 
 export default {
   components: {

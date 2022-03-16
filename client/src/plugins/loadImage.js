@@ -6,6 +6,7 @@ export default {
         img.src = src;
         img.addEventListener('load', () => {
           // 완료 처리
+
           resolve();
         });
       });
