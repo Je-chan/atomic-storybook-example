@@ -13,6 +13,7 @@ export default {
       type: Number,
       required: true,
     },
+
   },
 
   emits: ['onClickHandler'],

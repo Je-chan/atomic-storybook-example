@@ -1,28 +1,53 @@
 <template>
   <Input
     class="submit-form-input"
-    type="text" />
-  <Button
+    type="text"
+    :palette="inputPalette" 
+    :size="inputSize" />
+  <CustomizedButton
     class="submit-form-button"
     @click.stop="emitsOnClickHandler"
-    :name="grewId">
+    :palette="buttonPalette"
+    :size="buttonSize"
+    :name="grewId"
+    :colored="colored">
     작성
-  </Button>
+  </CustomizedButton>
 </template>
 <script>
 import Input from '~/components/atoms/input/Input.vue'
-import Button from '~/components/atoms/button/CustomizedButton.vue'
+import CustomizedButton from '~/components/atoms/button/CustomizedButton.vue'
 export default {
   props: {
     grewId: {
       type: Number,
       required: true,
     },
+    inputPalette: {
+      type: String,
+      default: 'black'
+    },
+    inputSize: {
+      type: String,
+      default: 'm'
+    },
+    buttonPalette: {
+      type: String,
+      default: 'black'
+    },
+    buttonSize: {
+      type: String,
+      default: 'm'
+    },
+    colored: {
+      type: Boolean,
+      defalt: false
+    }
   },
 
   components: {
     Input,
-    Button,
+    CustomizedButton,
   },
 
   emits: ['onClickHandler'],
@@ -32,6 +57,7 @@ export default {
       context.emit('onClickHandler', e.target.name);
     };
 
+    console.log('=====sadasd===', props)
     return {
       emitsOnClickHandler,
     };

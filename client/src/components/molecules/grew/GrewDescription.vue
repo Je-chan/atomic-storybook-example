@@ -1,13 +1,26 @@
 <template>
-  <div id="grew-description">
-    <H3 :style="{ marginBottom: '10px' }">
-      {{ title }}
-    </H3>
-    <p>{{ content }}</p>
+  <div class="title-description-wrapper">
+    <TitleDescription
+      class="description"
+      title="본명"
+      :content="searchedGrew.name"
+      mb="10px" />
+    <TitleDescription
+      class="description"
+      title="닉네임"
+      :content="`${searchedGrew.nicknameEng} (${searchedGrew.nickname})`"
+      mb="10px" />
+    <TitleDescription
+      class="description"
+      title="슬로건"
+      :content="searchedGrew.slogan"
+      mb="10px" />
   </div>
 </template>
 <script>
-import H3 from '~/components/atoms/h/H3';
+import TitleDescription from '~/components/molecules/common/TitleDescription';
+import {mapState} from 'vuex'
+
 
 export default {
   props: {
@@ -21,42 +34,20 @@ export default {
       required: true,
     },
 
-    m: {
-      type: String,
-      default: '0',
-    },
-    mt: {
-      type: String,
-      default: '',
-    },
-    mb: {
-      type: String,
-      default: '',
-    },
-    ml: {
-      type: String,
-      default: '',
-    },
-    mr: {
-      type: String,
-      default: '',
-    },
   },
 
   components: {
-    H3,
+    TitleDescription,
   },
+
+  computed: {
+    ...mapState('grew', ['searchedGrew', 'loading']),
+  },
+
 };
 </script>
-<style lang="scss">
-#grew-description {
-  margin: v-bind(m);
-  margin-top: v-bind(mt);
-  margin-bottom: v-bind(mb);
-  margin-left: v-bind(ml);
-  margin-right: v-bind(mr);
-  p {
-    margin: 10px 0;
-  }
+<style lang="scss" scoped>
+.description {
+  margin-bottom: 30px;
 }
 </style>

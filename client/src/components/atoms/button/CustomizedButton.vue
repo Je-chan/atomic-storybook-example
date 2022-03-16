@@ -24,11 +24,12 @@ const props = defineProps({
 
 });
 
+console.log('customized', props)
+
 const slots = useSlots();
 
 const stylePackage = {
-  w: '100px',
-  h: '35px',
+  w: '120px',
   c: '#000',
   ch: '#fff',
   b: '#000',
@@ -49,13 +50,14 @@ const colorTheme = {
 
 const sizeTheme = {
   xs: '40px',
-  s:  '60px',
+  s:  '80px',
   m:  '120px',
   l:  '300px',
   xl:  '500px',
 };
 
 const styledByProps = (palette, size) => {
+  console.log(palette, size)
   stylePackage.c = colorTheme[`${palette}`];
   stylePackage.b = colorTheme[`${palette}`];
   stylePackage.bch = colorTheme[`${palette}`];
@@ -64,6 +66,7 @@ const styledByProps = (palette, size) => {
 
 styledByProps(props.palette, props.size)
 
+console.log(stylePackage)
 
 if (props.colored) {
   stylePackage.bc = stylePackage.bch;
