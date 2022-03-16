@@ -18,6 +18,7 @@ export default {
         'green',
         'gray',
         'black',
+        'none',
       ],
     },
   },

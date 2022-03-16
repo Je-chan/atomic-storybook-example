@@ -9,7 +9,7 @@
 </template>
 <script>
 import SpinnerLoading from '~/components/atoms/Loading/SpinnerLoading';
-import Skeletons from '~/components/molecules/Skeletons';
+import Skeletons from '~/components/molecules/common/Skeletons';
 export default {
   components: {
     SpinnerLoading,

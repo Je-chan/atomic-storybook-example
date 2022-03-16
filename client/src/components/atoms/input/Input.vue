@@ -1,7 +1,7 @@
 <template>
   <input
     :value="value"
-    :style="{width: styledWidth, padding: styledPadding}"
+    :style="{width: styledWidth}"
     @input="updateValue"
     @keyup.enter="onEnterHandler" />
 </template>
@@ -13,10 +13,7 @@ export default {
       type: String,
       default: 'm'
     },
-    padding: {
-      type: String,
-      default: '0 1rem',
-    },
+
     palette: {
       type: String,
       default: 'black',
@@ -48,7 +45,8 @@ export default {
     lightRed: '#f7929f',
     green: '#71a71f',
     gray: '#8d97a1',
-    black: '#000'
+    black: '#000',
+    none: 'none'
   };
 
     const styledByProps = (size, palette) => {
@@ -87,6 +85,7 @@ export default {
 input {
   border:1px solid #ced4da;
   border-radius: 5px;
+  padding: 0.5rem 0.8rem;
   &:focus {
     outline: none;
     box-shadow: 0 0 6px v-bind(activeColor);

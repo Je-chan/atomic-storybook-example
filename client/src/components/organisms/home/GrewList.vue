@@ -23,7 +23,7 @@
   </div>
 </template>
 <script>
-import GrewInfo from '~/components/molecules/GrewInfo';
+import GrewInfo from '~/components/molecules/home/GrewInfo';
 import SpinnerLoading from '~/components/atoms/Loading/SpinnerLoading';
 import { mapState } from 'vuex';
 export default {

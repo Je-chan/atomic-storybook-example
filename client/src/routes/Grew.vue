@@ -55,7 +55,7 @@
 import ImgCard from '~/components/atoms/card/ImgCard';
 import H3 from '~/components/atoms/h/H3';
 
-import GrewDescription from '~/components/molecules/GrewDescription';
+import GrewDescription from '~/components/molecules/grew/GrewDescription';
 import InputForm from '~/components/molecules/common/InputForm';
 
 import LoadingInfo from '~/components/organisms/grew/LoadingInfo';
@@ -84,6 +84,7 @@ export default {
       id: this.$route.params.id,
     });
   },
+
   methods: {
     sendLetter: async (userId) => {
       const letter = document.getElementById('letter');
@@ -98,6 +99,7 @@ export default {
         alert('통신이 원활하지 않습니다.');
         return;
       }
+
       // location.reload();
       const ul = document.getElementById('letters');
       const li = document.createElement('li');
