@@ -33,3 +33,18 @@ const Template = (args) => ({
 });
 
 export const Adjust = Template.bind({});
+
+export const Size_S = Template.bind({});
+Size_S.args = {
+  size: 's',
+};
+
+export const Size_L = Template.bind({});
+Size_L.args = {
+  size: 'l',
+};
+
+export const Size_Max = Template.bind({});
+Size_Max.args = {
+  size: 'max',
+};
