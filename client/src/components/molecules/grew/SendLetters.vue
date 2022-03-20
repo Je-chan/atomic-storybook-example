@@ -10,6 +10,14 @@
     <!-- <InputFormByAtoms 
       :grew-id="searchedGrew.id"
       @onClickHandler="sendLetter" /> -->
+    <!-- <InputFormByAtomsCommon
+      @onClickHandler="sendLetter"
+      :id="searchedGrew.id"
+      input-palette="green"
+      input-size="l"
+      button-palette="green"
+      button-size="s"
+      colored /> -->
   </div>
 </template>
 <script>
@@ -17,15 +25,17 @@ import {mapState} from 'vuex'
 import axios from 'axios';
 
 import H3 from '~/components/atoms/h/H3'
-import InputForm from '~/components/molecules/common/InputForm';
-// import InputFormByAtoms from '~/components/molecules/common/InputFormByAtoms'
+import InputForm from '~/components/molecules/grew/InputForm';
+// import InputFormByAtoms from '~/components/molecules/grew/InputFormByAtoms'
+// import InputFormByAtomsCommon from '~/components/molecules/common/InputFormByAtomsCommon'
 
 
 export default {
   components: {
     H3,
     InputForm,
-    // InputFormByAtoms
+    // InputFormByAtoms,
+    // InputFormByAtomsCommon
   },
 
   computed: {

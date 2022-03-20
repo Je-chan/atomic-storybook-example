@@ -1,13 +1,34 @@
 <template>
   <div class="skeleton-wrapper">
-    <SkeletonSingle w="500px" h="750px" mr="70px" class="poster" />
+    <SkeletonSingle
+      w="500px"
+      h="750px"
+      mr="70px"
+      class="poster" />
     <div class="specs">
-      <SkeletonSingle w="80%" h="70px" />
-      <SkeletonSingle w="60%" h="30px" mt="20px" />
-      <SkeletonSingle w="100%" h="250px" mt="20px" />
-      <SkeletonSingle w="50%" h="50px" mt="20px" />
-      <SkeletonSingle w="50%" h="50px" mt="20px" />
-      <SkeletonSingle w="50%" h="50px" mt="20px" />
+      <SkeletonSingle
+        w="80%"
+        h="70px" />
+      <SkeletonSingle
+        w="60%"
+        h="30px"
+        mt="20px" />
+      <SkeletonSingle
+        w="100%"
+        h="250px"
+        mt="20px" />
+      <SkeletonSingle
+        w="50%"
+        h="50px"
+        mt="20px" />
+      <SkeletonSingle
+        w="50%"
+        h="50px"
+        mt="20px" />
+      <SkeletonSingle
+        w="50%"
+        h="50px"
+        mt="20px" />
     </div>
   </div>
 </template>

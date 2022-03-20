@@ -1,16 +1,10 @@
 <template>
   <Input
-    class="submit-form-input"
-    type="text"
-    :palette="inputPalette" 
-    :size="inputSize" />
+    type="text" />
   <CustomizedButton
     class="submit-form-button"
-    @click.stop="emitsOnClickHandler"
-    :palette="buttonPalette"
-    :size="buttonSize"
     :name="grewId"
-    :colored="colored">
+    @click.stop="emitsOnClickHandler">
     작성
   </CustomizedButton>
 </template>
@@ -23,26 +17,6 @@ export default {
       type: Number,
       required: true,
     },
-    inputPalette: {
-      type: String,
-      default: 'black'
-    },
-    inputSize: {
-      type: String,
-      default: 'm'
-    },
-    buttonPalette: {
-      type: String,
-      default: 'black'
-    },
-    buttonSize: {
-      type: String,
-      default: 'm'
-    },
-    colored: {
-      type: Boolean,
-      defalt: false
-    }
   },
 
   components: {
@@ -57,7 +31,6 @@ export default {
       context.emit('onClickHandler', e.target.name);
     };
 
-    console.log('=====sadasd===', props)
     return {
       emitsOnClickHandler,
     };
