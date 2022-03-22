@@ -1,10 +1,15 @@
 <template>
   <Input
-    type="text" />
+    type="text"
+    size="l"
+    palette="green" />
   <CustomizedButton
     class="submit-form-button"
     :name="grewId"
-    @click.stop="emitsOnClickHandler">
+    @click.stop="emitsOnClickHandler"
+    size="s"
+    palette="green"
+    colored>
     작성
   </CustomizedButton>
 </template>

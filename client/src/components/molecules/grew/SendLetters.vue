@@ -4,12 +4,12 @@
     <H3 :style="{ marginBottom: '16px' }">
       익명 편지쓰기
     </H3>
-    <InputForm
-      :grew-id="searchedGrew.id"
-      @onClickHandler="sendLetter" />
-    <!-- <InputFormByAtoms 
+    <!-- <InputForm
       :grew-id="searchedGrew.id"
       @onClickHandler="sendLetter" /> -->
+    <InputFormByAtoms 
+      :grew-id="searchedGrew.id"
+      @onClickHandler="sendLetter" />
     <!-- <InputFormByAtomsCommon
       @onClickHandler="sendLetter"
       :id="searchedGrew.id"
@@ -26,7 +26,7 @@ import axios from 'axios';
 
 import H3 from '~/components/atoms/h/H3'
 import InputForm from '~/components/molecules/grew/InputForm';
-// import InputFormByAtoms from '~/components/molecules/grew/InputFormByAtoms'
+import InputFormByAtoms from '~/components/molecules/grew/InputFormByAtoms'
 // import InputFormByAtomsCommon from '~/components/molecules/common/InputFormByAtomsCommon'
 
 
@@ -34,7 +34,7 @@ export default {
   components: {
     H3,
     InputForm,
-    // InputFormByAtoms,
+    InputFormByAtoms,
     // InputFormByAtomsCommon
   },
 

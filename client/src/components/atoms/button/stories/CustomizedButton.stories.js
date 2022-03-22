@@ -1,5 +1,5 @@
 // main.js 에서 sass-loader 가 필요하다는 거 추가
-import CustomizedButton from '../CustomizedButton.vue';
+import CustomizedButton from '~/components/atoms/button/CustomizedButton.vue';
 
 // More on default export: https://storybook.js.org/docs/vue/writing-stories/introduction#default-export
 export default {
@@ -7,6 +7,19 @@ export default {
   component: CustomizedButton,
   argTypes: {
     palette: {
+      control: { type: 'select' },
+      options: [
+        'blue',
+        'lightBlue',
+        'red',
+        'lightRed',
+        'green',
+        'gray',
+        'black',
+      ],
+    },
+
+    xAxisTitle: {
       control: { type: 'select' },
       options: [
         'blue',
@@ -37,7 +50,6 @@ const Template = (args) => ({
         ? Object.values(args.default)[0]
         : 'Button'
     }</template>
-
   </CustomizedButton>`,
 });
 

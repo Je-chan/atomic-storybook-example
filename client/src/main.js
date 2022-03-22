@@ -4,6 +4,8 @@ import App from './App.vue';
 import router from './routes';
 import store from './store';
 import loadImage from './plugins/loadImage';
+import highchartsDefault from '~/utilities/chart/highchartsDefault.js';
+highchartsDefault();
 
 // use 메소드는 플러그인을 적용하고자 할 때 사용
 createApp(App).use(router).use(store).use(loadImage).mount('#app');

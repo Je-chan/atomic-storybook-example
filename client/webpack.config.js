@@ -76,7 +76,8 @@ module.exports = {
     new CopyPlugin({
       patterns: [{ from: 'static' }],
     }),
-    new VueLoaderPlugin(), new Dotenv(),
+    new VueLoaderPlugin(),
+    new Dotenv(),
   ],
 
   // 개발 서버 옵션
