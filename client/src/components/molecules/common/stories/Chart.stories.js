@@ -35,14 +35,13 @@ export default {
     },
     chartColor: {
       defaultValue: '#7EB923',
-      description: `type 이 line, column 일 때, 
-      \n Chart의 색을 지정합니다`,
+      description: `Chart의 색을 지정합니다`,
     },
     tooltipClear: {
       defaultValue: false,
-      description: `그래프에 마우스에 갖다 대지 않아도 y축 값을 그래프에 바로 보여줄지 (true 값)
-      \n 마우스를 갖다 대야지만 툴팁으로 보여줄지를 설정합니다 (false 값)
-      \n line 일 때만 true 값이 가능합니다`,
+      description: `값이 true 일 경우, Tooltip 이 나타나지 않습니다.
+      \n 차트 타입이 line 일 때만, 사용이 가능합니다.
+      `,
     },
   },
 };

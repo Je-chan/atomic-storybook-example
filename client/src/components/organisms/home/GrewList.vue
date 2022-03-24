@@ -13,11 +13,24 @@
       </p>
       <div
         v-else
-        class="grews">
-        <GrewInfo
-          v-for="grew in grews"
-          :key="grew.id"
-          :grew="grew" />
+        class="grew-info-wrapper">
+        <div class="chart-button-wrapper">
+          <RouterLink
+            to="/chart">
+            <CustomizedButton
+              class="chart-button"
+              palette="green">
+              Chart
+            </CustomizedButton>
+          </RouterLink>
+        </div>
+        <div
+          class="grews">
+          <GrewInfo
+            v-for="grew in grews"
+            :key="grew.id"
+            :grew="grew" />
+        </div>
       </div>
     </div>
   </div>
@@ -25,9 +38,11 @@
 <script>
 import GrewInfo from '~/components/molecules/home/GrewInfo';
 import SpinnerLoading from '~/components/atoms/Loading/SpinnerLoading';
+import CustomizedButton from '~/components/atoms/button/CustomizedButton'
 import { mapState } from 'vuex';
 export default {
   components: {
+    CustomizedButton,
     GrewInfo,
     SpinnerLoading,
   },
@@ -52,15 +67,27 @@ export default {
     &.no-result {
       padding: 70px 0;
     }
-  }
   .message {
     color: $gray-400;
     font-size: 20px;
   }
-  .grews {
-    display: flex;
+  .grew-info-wrapper{
+    .chart-button-wrapper {
+      position: relative;
+      height: 50px;
+      .chart-button {
+        position: absolute;
+        top: 0.25rem;
+        right: 1.25rem;
+      }
+    }
+    .grews {
+      display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    }
   }
+  }
+
 }
 </style>

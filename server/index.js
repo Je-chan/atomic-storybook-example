@@ -1,4 +1,4 @@
-require('dotenv').config({filename: ".env"});
+require('dotenv').config({ filename: '.env' });
 
 // 필요한 모듈 다운
 const express = require('express');
@@ -20,7 +20,7 @@ app.use(
 );
 
 app.get('/', (_, res) => {
-  return res.send("hey");
+  return res.send('hey');
 });
 
 app.get('/searching', async (req, res) => {
@@ -89,19 +89,24 @@ app.get('/grew-person', async (req, res) => {
 
     if (grewInfo) {
       try {
-        grewInfo.letters = (await axios.get(`http://127.0.0.1:7894/letters/${id}`)).data;
-      } catch(e) {
+        grewInfo.letters = (
+          await axios.get(`http://127.0.0.1:7894/letters/${id}`)
+        ).data;
+      } catch (e) {
         grewInfo.letters = [];
       }
       return res.json(grewInfo);
-    }
-    else res.status(400).send('조건을 만족하는 분이 안 계십니다');
+    } else res.status(400).send('조건을 만족하는 분이 안 계십니다');
   } catch (err) {
     res.status(500).send('네트워크가 불안정합니다');
   }
 });
 
-app.get("/health", (_, res) => res.json({ status: "UP" }));
+app.get('/grew-letter', async (_, res) => {
+  res;
+});
+
+app.get('/health', (_, res) => res.json({ status: 'UP' }));
 
 app.get('/grews', async (_, res) => res.json(await Grew.findAll()));
 
