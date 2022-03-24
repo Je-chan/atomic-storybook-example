@@ -24,15 +24,15 @@ export default defineComponent({
       type: Array,
       default: () => []
     },
-    yAxisName: {
+    yAxisUnit: {
       type: String,
       default: '',
     },
-    chartData: {
+    yAxisData: {
       type: Array,
       default: () => [],
     },
-    chartDataName: {
+    yAxisDataName: {
       type: String,
       default: 'example'
     },
@@ -47,7 +47,7 @@ export default defineComponent({
   },
   setup(props) {
 
-    const chartOptions = testChartOptions(props.title, props.type, props.xAxisList, props.yAxisName, props.chartData, props.chartDataName, props.chartColor, props.tooltipClear);
+    const chartOptions = testChartOptions(props.title, props.type, props.xAxisList, props.yAxisUnit, props.yAxisData, props.yAxisDataName, props.chartColor, props.tooltipClear);
 
     return {
       chartOptions,

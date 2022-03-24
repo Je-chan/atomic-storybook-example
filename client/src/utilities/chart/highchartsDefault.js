@@ -9,11 +9,13 @@ export default () => {
       },
       reflow: true,
     },
+
     lang: {
       numericSymbols: [],
       thousandsSep: ',',
       noData: '조회 결과가 없습니다.',
     },
+
     title: {
       y: 10,
       style: {
@@ -21,12 +23,15 @@ export default () => {
         fontWeight: 'bold',
       },
     },
+
     exporting: {
       enabled: false,
     },
+
     credits: {
       enabled: false,
     },
+
     tooltip: {
       shared: true,
       useHTML: true,
@@ -67,6 +72,7 @@ export default () => {
       minPadding: 0,
       maxPadding: 0,
     },
+
     yAxis: {
       labels: {
         style: {
@@ -96,11 +102,16 @@ export default () => {
 
     plotOptions: {
       series: {
+        label: {
+          connectorAllowed: false,
+        },
         marker: {
           radius: 16 * 0.25,
         },
       },
-      line: { lineWidth: 16 * 0.125 },
+      line: {
+        lineWidth: 16 * 0.125,
+      },
     },
 
     legend: {
@@ -118,6 +129,21 @@ export default () => {
       symbolWidth: 16 * 1,
       symbolPadding: 16 * 0.25,
       margin: 16 * 0.5,
+    },
+
+    responsive: {
+      rules: [
+        {
+          condition: {
+            maxWidth: 500,
+          },
+          chartOptions: {
+            legend: {
+              enabled: false,
+            },
+          },
+        },
+      ],
     },
   });
 };

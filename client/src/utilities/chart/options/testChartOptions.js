@@ -2,9 +2,9 @@ export const testChartOptions = (
   title,
   type,
   xAxisList,
-  yAxisName,
-  chartData,
-  chartDataName,
+  yAxisUnit,
+  yAxisData,
+  yAxisDataName,
   chartColor,
   tooltipClear
 ) => {
@@ -13,6 +13,7 @@ export const testChartOptions = (
     title: {
       text: title,
     },
+
     xAxis: {
       categories: xAxisList,
       title: {
@@ -21,14 +22,16 @@ export const testChartOptions = (
       },
       tickInterval: 1,
     },
+
     yAxis: [
       {
         title: {
-          text: yAxisName,
+          text: yAxisUnit,
         },
         opposite: false,
       },
     ],
+
     plotOptions: {
       line: {
         dataLabels: {
@@ -37,19 +40,27 @@ export const testChartOptions = (
         enableMouseTracking: !tooltipClear,
       },
     },
+
     series: [
       {
         type: type,
-        name: chartDataName,
-
+        name: yAxisDataName,
         stickyTracking: false,
-        data: chartData,
+        data: yAxisData,
         color: chartColor,
         marker: {
-          enabled: false,
+          enabled: true,
         },
         zIndex: 10,
       },
     ],
+
+    legend: {
+      align: 'right',
+      verticalAlign: 'top',
+      layout: 'vertical',
+      x: 0,
+      y: 0,
+    },
   };
 };

@@ -18,20 +18,6 @@ export default {
         'black',
       ],
     },
-
-    xAxisTitle: {
-      control: { type: 'select' },
-      options: [
-        'blue',
-        'lightBlue',
-        'red',
-        'lightRed',
-        'green',
-        'gray',
-        'black',
-      ],
-    },
-
     size: {
       control: { type: 'select' },
       options: ['xs', 's', 'm', 'l', 'xl'],
