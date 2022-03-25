@@ -49,10 +49,14 @@ export default defineComponent({
 
     const chartOptions = testChartOptions(props.title, props.type, props.xAxisList, props.yAxisUnit, props.yAxisData, props.yAxisDataName, props.chartColor, props.tooltipClear);
 
+
+
+
     return {
       chartOptions,
     };
   }
 });
 </script>
-<style lang="scss" scoped></style>s
+<style lang="scss" scoped>
+</style>

@@ -12,25 +12,43 @@ export default {
     type: {
       control: { type: 'select' },
       defaultValue: 'line',
-      options: ['line', 'column'],
+      options: ['line', 'spline', 'column', 'area'],
     },
     xAxisList: {
       control: { type: 'array' },
-      defaultValue: ['1', '2', '3', '4'],
+      defaultValue: [
+        'bene',
+        'kaze',
+        'elory',
+        'arielle',
+        'daniel',
+        'roya',
+        'ethan',
+        'joah',
+        'liebe',
+        'dolma',
+        'sean',
+        'rick',
+        'hazel',
+        'joel',
+        'liam',
+        'trevor',
+        'sarah',
+      ],
       description: `" :x-axis-list " props 에 배열을 넣으면 
       \n 요소들이 X축 값이 됩니다`,
     },
     yAxisUnit: {
-      defaultValue: '어떤 값입니다.',
+      defaultValue: '(개)',
       description: `Y축 데이터의 단위를 지정합니다`,
     },
     yAxisData: {
       control: { type: 'array' },
-      defaultValue: [1, 5, 4, 2],
+      defaultValue: [15, 13, 11, 5, 4, 23, 7, 4, 8, 17, 12, 8, 5, 8, 6, 5, 12],
       description: `Y축 데이터 값을 의미합니다`,
     },
     yAxisDataName: {
-      defaultValue: '변동 추이',
+      defaultValue: '받은 편지 개수',
       description: 'Y축 데이터가 무엇을 가리키는지 의미합니다',
     },
     chartColor: {

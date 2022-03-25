@@ -5,6 +5,7 @@ import router from './routes';
 import store from './store';
 import loadImage from './plugins/loadImage';
 import highchartsDefault from '~/utilities/chart/highchartsDefault.js';
+
 highchartsDefault();
 
 // use 메소드는 플러그인을 적용하고자 할 때 사용

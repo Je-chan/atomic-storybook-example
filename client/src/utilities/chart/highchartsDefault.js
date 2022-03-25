@@ -1,4 +1,13 @@
-import * as Highcharts from 'highcharts';
+import Highcharts from 'highcharts';
+import darkUnica from 'highcharts/themes/dark-unica';
+import exportingInit from 'highcharts/modules/exporting';
+import stockInit from 'highcharts/modules/stock';
+import offlineExporting from 'highcharts/modules/offline-exporting';
+
+darkUnica(Highcharts);
+stockInit(Highcharts);
+exportingInit(Highcharts);
+offlineExporting(Highcharts);
 
 export default () => {
   Highcharts.setOptions({
@@ -94,7 +103,7 @@ export default () => {
         x: 16 * -0.875,
         y: 16 * -1,
         style: {
-          fontSize: '0.625rem',
+          fontSize: '0.825rem',
           fontWeight: 'bold',
         },
       },
@@ -109,8 +118,22 @@ export default () => {
           radius: 16 * 0.25,
         },
       },
+
       line: {
         lineWidth: 16 * 0.125,
+      },
+
+      area: {
+        marker: {
+          enabled: false,
+          symbol: 'circle',
+          radius: 2,
+          states: {
+            hover: {
+              enabled: true,
+            },
+          },
+        },
       },
     },
 

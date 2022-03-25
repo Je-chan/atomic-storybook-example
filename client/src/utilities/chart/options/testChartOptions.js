@@ -20,7 +20,6 @@ export const testChartOptions = (
         text: null,
         align: 'high',
       },
-      tickInterval: 1,
     },
 
     yAxis: [
@@ -28,7 +27,6 @@ export const testChartOptions = (
         title: {
           text: yAxisUnit,
         },
-        opposite: false,
       },
     ],
 
@@ -39,6 +37,20 @@ export const testChartOptions = (
         },
         enableMouseTracking: !tooltipClear,
       },
+
+      spline: {
+        states: {
+          typehover: {
+            lineWidth: 5,
+          },
+        },
+      },
+
+      area: {
+        marker: {
+          enabled: false,
+        },
+      },
     },
 
     series: [
@@ -48,9 +60,7 @@ export const testChartOptions = (
         stickyTracking: false,
         data: yAxisData,
         color: chartColor,
-        marker: {
-          enabled: true,
-        },
+
         zIndex: 10,
       },
     ],
