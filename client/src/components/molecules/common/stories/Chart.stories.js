@@ -9,6 +9,9 @@ export default {
   title: 'Example/Chart',
   component: HighChart,
   argTypes: {
+    title: {
+      defaultValue: '',
+    },
     type: {
       control: { type: 'select' },
       defaultValue: 'line',
