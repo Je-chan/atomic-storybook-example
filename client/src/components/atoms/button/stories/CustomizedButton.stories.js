@@ -1,7 +1,5 @@
-// main.js 에서 sass-loader 가 필요하다는 거 추가
 import CustomizedButton from '~/components/atoms/button/CustomizedButton.vue';
 
-// More on default export: https://storybook.js.org/docs/vue/writing-stories/introduction#default-export
 export default {
   title: 'Example/CustomizedButton',
   component: CustomizedButton,
@@ -17,10 +15,12 @@ export default {
         'gray',
         'black',
       ],
+      description: '총 7개의 색상으로 버튼 색을 변경할 수 있습니다',
     },
     size: {
       control: { type: 'select' },
       options: ['xs', 's', 'm', 'l', 'xl'],
+      description: `총 5개의 사이즈로 크기를 변경할 수 있습니다`,
     },
   },
 };

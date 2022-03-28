@@ -76,9 +76,7 @@ export default defineComponent({
       props.yAxisDataName3, 
       props.chartColor, 
       props.tooltipClear);
-
-
-
+      
     return {
       chartOption,
     };

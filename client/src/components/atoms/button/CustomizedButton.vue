@@ -5,7 +5,6 @@
   </button>
 </template>
 <script setup>
-// import { ref } from "vue";
 import { useSlots, defineProps } from 'vue';
 
 const props = defineProps({
@@ -66,7 +65,6 @@ const styledByProps = (palette, size) => {
 
 styledByProps(props.palette, props.size)
 
-console.log(stylePackage)
 
 if (props.colored) {
   stylePackage.bc = stylePackage.bch;

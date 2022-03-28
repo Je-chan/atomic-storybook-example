@@ -35,22 +35,21 @@ export default {
     LoadingInfo,
     GrewInfoDescription,
   },
+
   data() {
     return {
       imageLoading: true,
     };
   },
+
   computed: {
     ...mapState('grew', ['searchedGrew', 'loading']),
   },
+
   created() {
     this.$store.dispatch('grew/searchGrewId', {
       id: this.$route.params.id,
     });
-  },
-
-  mounted() {
-    console.log('====', this.$store.state);
   },
 };
 </script>
